@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+
+	html {
+	  scroll-behavior: smooth;
+	}
+
+	body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      margin: 0;
+      padding: 0;
+	}
+
+	nav {
+	  position: fixed;
+	  left: 0;
+	  width: 100%;
+	  background-color: #1e1e1e;
+	  z-index: 1000;
+	  padding: 10px 0;
+	}
+
+	nav ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  display: flex;
+	  justify-content: center;
+	}
+
+	nav a {
+	  display: inline-block;
+	  color: #888;
+	  margin: 0 20px;
+	  text-decoration: none;
+	  font-size: 18px;
+	  padding: 10px 15px;
+	  transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	nav a:hover {
+	  color: #ffffff;
+	}
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .left-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .left-section img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+    }
+
+    .left-section h1 {
+      margin: 10px 0;
+      font-size: 40px;
+    }
+
+    .left-section p {
+      margin: 0;
+      color: #00ff00;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .right-section {
+      flex: 2;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .right-section h2 {
+	  text-align: center;
+	  margin-bottom: 10px;
+	}
+
+    .right-section p {
+    	text-align: justify;
+	}
+
+	/* SKills */
+	.skills {
+	  background-color: #1a1a1a;
+	  padding: 40px;
+	  color: white;
+	}
+
+	.skills h2 {
+	  text-align: center;
+	  color: #ffffff;
+	  font-size: 36px;
+	  margin-bottom: 30px;
+	}
+
+	.skill-category {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+	}
+
+	.skill-group {
+	  flex: 1 1 22%;
+	  margin: 10px;
+	}
+
+	.skill-group h3 {
+	  font-size: 24px;
+	  color: #888;
+	  margin-bottom: 15px;
+	  text-align: center;
+	}
+
+	.skills-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+	}
+
+	.skill {
+	  background-color: #333;
+	  color: #00ff00;
+	  margin: 8px;
+	  padding: 8px 12px;
+	  border-radius: 8px;
+	  text-align: center;
+	  font-size: 16px;
+	  transition: background-color 0.3s ease;
+	}
+
+	.skill:hover {
+	  background-color: #00ff00;
+	  color: #1a1a1a;
+	}
+
+	/* Experience */
+	.experience {
+	  background-color: #1a1a1a;
+	  padding: 40px;
+	  color: #ffffff;
+	}
+
+	.experience h2 {
+	  text-align: center;
+	  color: #ffffff;
+	  font-size: 30px;
+	  margin-bottom: 30px;
+	}
+
+	.job {
+	  margin-bottom: 30px;
+	}
+
+	.job h3 {
+	  font-size: 24px;
+	  color: #00ff00;
+	}
+
+	.company {
+	  color: #888;
+	  font-style: italic;
+	}
+
+	.duration {
+	  font-size: 16px;
+	  color: #aaa;
+	  margin-bottom: 10px;
+	}
+
+	.job ul {
+	  list-style-type: disc;
+	  margin-left: 20px;
+	  color: #ccc;
+	}
+
+	.job ul li {
+	  font-size: 16px;
+	  margin-bottom: 5px;
+	}
+
+	/* Projects */
+	.projects {
+	  margin: 20px;
+	  padding: 40px;
+	  background-color: #1e1e1e;
+	  text-align: center;
+	}
+
+	.project-box {
+	  background-color: black;
+	  color: white;
+	  padding: 20px;
+	  text-align: left;
+	  margin-bottom: 20px;
+	  border-radius: 10px;
+	  transition: background-color 0.3s ease;
+	}
+
+	.projects h2 {
+	  text-align: center;
+	  color: #ffffff;
+	  font-size: 30px;
+	  margin-bottom: 30px;
+	}
+
+	.project-box h3 {
+	  margin-top: 0;
+	  color: #888;
+	  font-size: 24px;
+	}
+
+	.project-box p {
+	  font-size: 16px;
+	  margin: 10px 0;
+	}
+
+	.project-box a {
+	  color: #00ff00;
+	  text-decoration: none;
+	}
+
+	.project-box a:hover {
+	  text-decoration: underline;
+	}
+
+	/* Contact Me */
+	.contact {
+	  background-color: #111;
+	  color: white;
+	  padding: 20px;
+	  text-align: center;
+	}
+
+	.contact h2 {
+	  font-size: 30px;
+	  margin-bottom: 10px;
+	}
+
+	.contact p {
+	  font-size: 18px;
+	  margin-bottom: 20px;
+	}
+
+	.contact ul {
+	  list-style-type: none;
+	  padding: 0;
+	}
+
+	.contact li {
+	  margin: 10px 0;
+	}
+
+	.contact a {
+	  color: #00ff00;
+	  text-decoration: none;
+	  font-size: 18px;
+	  transition: color 0.3s ease;
+	}
+
+	.contact a:hover {
+	  color: #00cc00;
+	}
+
+    .skills, .experience, .projects, .contact {
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+	    font-size: 14px;
+	    padding: 8px 12px;
+	    margin: 0 10px;
+	  }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .right-section {
+        text-align: center;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="about" id="about">
+    <!-- Left Section -->
+    <div class="left-section">
+      <img src="s.jpeg" alt="Profile Picture">
+      <h1>SARANYA V</h1>
+      <p>FULL STACK DEVELOPER</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <h2>ABOUT ME</h2>
+      <p>
+      	I am a passionate full-stack developer with expertise in building dynamic and responsive web applications. Skilled in front-end frameworks like React and Angular, as well as back-end technologies like Node.js, Express, and ASP.NET, I craft seamless and scalable solutions.
+      </p>
+      <p>
+      	With a strong focus on user experience and performance, I ensure efficient database integration and intuitive designs. I thrive in collaborative environments, applying Agile methodologies to deliver high-quality projects on time.
+      </p>
+      <p>
+      	Always eager to learn, I stay updated with evolving technologies to bring creativity and technical excellence to every project. Every project is an opportunity to learn, innovate, and deliver results that matter—because for me, development is about more than just technology; it's about creating experiences that resonate.
+      </p>
+    </div>
+  </div>
+
+  	<!-- Skills -->
+	<div class="skills" id="skills">
+	  <h2>SKILLS</h2>
+	  <div class="skill-category">
+	    <div class="skill-group">
+	      <h3>Programming Languages</h3>
+	      <div class="skills-list">
+	        <div class="skill">C#</div>
+	        <div class="skill">Java</div>
+	        <div class="skill">JavaScript</div>
+	        <div class="skill">Typescript</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Front-End Development</h3>
+	      <div class="skills-list">
+	        <div class="skill">HTML</div>
+	        <div class="skill">CSS</div>
+	        <div class="skill">Bootstrap</div>
+	        <div class="skill">React.js</div>
+	        <div class="skill">Angular</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Back-End Development</h3>
+	      <div class="skills-list">
+	        <div class="skill">.NET</div>
+	        <div class="skill">Python</div>
+	        <div class="skill">PHP</div>
+	        <div class="skill">Node.js</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Web Frameworks</h3>
+	      <div class="skills-list">
+	        <div class="skill">ASP .NET Core MVC</div>
+	        <div class="skill">Laravel</div>
+	        <div class="skill">CodeIgniter</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Databases</h3>
+	      <div class="skills-list">
+	        <div class="skill">MySQL</div>
+	        <div class="skill">PL-SQL</div>
+	        <div class="skill">MS SQL Server</div>
+	        <div class="skill">MongoDB</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Scripting</h3>
+	      <div class="skills-list">
+	        <div class="skill">JavaScript</div>
+	        <div class="skill">Google Apps Script</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Mobile Development</h3>
+	      <div class="skills-list">
+	        <div class="skill">Android Native Apps</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Dev Tools</h3>
+	      <div class="skills-list">
+	        <div class="skill">Visual Studio</div>
+	        <div class="skill">Git</div>
+	        <div class="skill">Android Studio</div>
+	        <div class="skill">Visual Studio Code</div>
+	        <div class="skill">Postman</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Block-based Coding</h3>
+	      <div class="skills-list">
+	        <div class="skill">Scratch</div>
+	        <div class="skill">Thunkable</div>
+	        <div class="skill">Tynker</div>
+	        <div class="skill">code.org</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Data Visualization Tools</h3>
+	      <div class="skills-list">
+	        <div class="skill">GeoGebra</div>
+	        <div class="skill">LabInApp</div>
+	        <div class="skill">Tableau</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>UX/UI Design Tools</h3>
+	      <div class="skills-list">
+	        <div class="skill">Figma</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Testing</h3>
+	      <div class="skills-list">
+	        <div class="skill">Manual Testing</div>
+	        <div class="skill">Automation Testing (Selenium)</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Additional Skills</h3>
+	      <div class="skills-list">
+	        <div class="skill">Cloud Computing – Azure (App Services)</div>
+	        <div class="skill">Networking</div>
+	        <div class="skill">GitHub Actions</div>
+	        <div class="skill">Continuous Integration/Continuous Deployment (CI/CD)</div>
+	        <div class="skill">Debugging</div>
+	      </div>
+	    </div>
+	    <div class="skill-group">
+	      <h3>Soft Skills</h3>
+	      <div class="skills-list">
+	        <div class="skill">Analytic and creative thinking</div>
+	        <div class="skill">Project Management</div>
+	        <div class="skill">Interpersonal and collaborative skills</div>
+	        <div class="skill">Team player known for great communication</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- Experience -->
+	<div class="experience" id="experience">
+	  	<h2>EXPERIENCE</h2>
+	  
+	  <div class="job">
+	    <h3>Coding Instructor<span class="company">@Convergency Autism Services</span></h3>
+	    <p class="duration">Toronto | October 2024 - Present</p>
+	    <ul>
+	      <li>Adapted coding lessons to align with Applied Behavior Analysis (ABA) principles, ensuring structured, step-by-step learning for students with autism.</li>
+	      <li>Taught coding concepts like sequencing, loops, and conditionals using visual aids and simplified examples tailored to the learning pace of autistic students.</li>
+	      <li>Designed and implemented interactive coding projects in block-based languages like Scratch to build problem-solving and logical thinking skills.</li>
+	      <li>Utilized diverse teaching methods, including hands-on activities, visual programming tools, and step-by-step guidance, to accommodate the unique learning styles of autistic students.</li>
+	    </ul>
+	  </div>
+
+	  <div class="job">
+	    <h3>Coding Instructor<span class="company">@Bestbrains Learning Center</span></h3>
+	    <p class="duration">Toronto | January 2024 - Present</p>
+	    <ul>
+		  <li>Possess in-depth knowledge of the curriculum and effectively teach programming languages ensuring students grasp foundational concepts and apply them successfully.</li>
+		  <li>Teach programming languages like HTML, JavaScript, Python, and Scratch, using tailored lesson plans aligned with educational standards to suit different learning levels.</li>
+		  <li>Communicate coding concepts clearly through visual aids, structured explanations, and hands-on examples to enhance engagement and understanding.</li>
+		  <li>Managed classroom dynamics effectively, ensuring a positive and conducive learning environment for students to thrive in coding.</li>
+		  <li>Facilitate interactive sessions, encouraging active participation through hands-on projects, coding challenges, and regular assessments, with constructive feedback for improvement.</li>
+	    </ul>
+	  </div>
+
+	  <div class="job">
+	    <h3>Coding Lead<span class="company">@Carveniche Technologies</span></h3>
+	    <p class="duration">Bengaluru | July 2022 - December 2023</p>
+		<ul>
+		  <li>Leveraged React.js and Bootstrap for dynamic front-end and responsive UI design in payment system development with a solid understanding of states and lifecycles of React components.</li>
+		  <li>Developed a progress-tracking system using ASP.NET MVC for chapters, subjects, and assignments, offering students and teachers an intuitive interface to monitor learning progress and streamline classroom management.</li>
+		  <li>Implemented RESTful APIs using ASP.NET Web API, facilitating seamless communication between front-end and back-end systems.</li>
+		  <li>Conducted code reviews and implemented best practices for .NET development to maintain high code quality and standards.</li>
+		  <li>Developed a full-stack Book Management System using Angular and TypeScript for dynamic data entry and real-time updates. Utilized Node.js to build backend APIs, handling data and ensuring efficient CRUD operations for seamless integration with front-end services.</li>
+		  <li>Supervised a multidisciplinary team, focusing on the development of multiple projects, and collaborated with cross-functional teams including developers, QA analysts, business stakeholders, and UX/UI designers.</li>
+		  <li>Experience with MongoDB, Angular, and Node.js individually, with a solid foundation to work in MEAN stack development environments.</li>
+		  <li>Experience in maintaining modular and reusable styles using SASS-like principles in CSS.</li>
+		  <li>Leveraged Laravel to develop robust backend functionalities for an edtech platform, enabling efficient content management, user authentication, and seamless integration with educational resources to support dynamic learning experiences.</li>
+		</ul>
+	  </div>
+
+	  <div class="job">
+	    <h3>Full Stack Developer<span class="company">@Byju's - Think & Learn Pvt. Ltd.</span></h3>
+	    <p class="duration">Bengaluru | June 2021 - July 2022</p>
+		<ul>
+		  <li>Developed Android applications using Android Studio tailored for educators to streamline lesson planning, allowing them to easily create, organize, and share course materials, assignments, and resources with students.</li>
+		  <li>Collaborated with cross-functional teams in a Scrum environment, actively participating in sprint planning, daily stand-ups, and retrospectives to ensure timely delivery of project milestones.</li>
+		  <li>Engaged in the automation of operation-related tasks using App Script.</li>
+		  <li>Development of automation tool for content/grammar editor to improve quality with minimal time using JavaScript.</li>
+		  <li>Debugging and troubleshooting of existing code to identify and resolve issues, ensuring optimal application performance and reliability.</li>
+		  <li>Implemented manual and automated testing using Selenium.</li>
+		  <li>Analyzed, developed tests, and implemented new software programs and documentation of entire SDLC execution.</li>
+		</ul>
+	  </div>
+	  
+	  <div class="job">
+	    <h3>SQL Developer<span class="company">@Advids</span></h3>
+	    <p class="duration">Pune | November 2019 - April 2021</p>
+		<ul>
+		  <li>Created SQL and PL/SQL scripts for managing database objects such as tables, views, keys, indexes, and constraints.</li>
+		  <li>Utilized data flow diagrams, data dictionaries, and normalization techniques for effective database design.</li>
+		  <li>Played a key role in the extraction, transformation, and loading (ETL) of data using MySQL.</li>
+		  <li>Developed PHP scripts to interact with MySQL databases.</li>
+		  <li>Contributed to the design, coding, and testing phases of software applications using Oracle PL/SQL and Java.</li>
+		  <li>Applied expertise in ETL processes, systems, and data management practices.</li>
+		  <li>Applied database design principles, including normalization, to enhance query performance and system responsiveness.</li>
+		  <li>Reviewed and optimized SQL queries for improved efficiency and created database indexes to further enhance performance.</li>
+		  <li>Participated in database design reviews and code walk-throughs to ensure effective system operation.</li>
+		  <li>Acquired proficiency in MVC application development through practical experience.</li>
+		</ul>
+	  </div>
+	</div>
+
+	<!-- Projects -->
+	<div class="projects" id="projects">
+	  <h2>PROJECTS</h2>
+	  
+	  <div class="project-box">
+	    <h3>EasyCuisine</h3>
+	    <p>Developed a recipe search engine website using ASP.NET and C#, allowing users to find recipes based on available ingredients. Implemented functionality for users to input ingredients and receive relevant recipe suggestions, enhancing the user experience and providing a valuable resource for cooking enthusiasts. Additionally, integrated a filtering system that enables users to search by dietary preferences, such as vegetarian or gluten-free options, making it even more user-friendly.</p>
+	    <a href="https://github.com/gitsaranya" target="_blank">GitHub Link</a>
+	  </div>
+
+	  <div class="project-box">
+	    <h3>Payment System</h3>
+	    <p>Developed the front-end UI of a responsive payment system using React.js and Bootstrap, focusing on dynamic interfaces and ensuring responsive design across devices. Utilized React.js for interactive elements and Bootstrap for seamless cross-device compatibility. Created an intuitive user experience for payment transactions, ensuring a smooth and user-friendly interface, while laying the foundation for secure payment integration.</p>
+	    <a href="https://github.com/gitsaranya" target="_blank">GitHub Link</a>
+	  </div>
+
+	  <div class="project-box">
+	    <h3>Chatbot</h3>
+	    <p>Leveraged Meta's Cloud API to integrate advanced functionality into a WhatsApp chatbot automation solution, seamlessly coordinating with the WhatsApp Business Management API and webhooks on platforms like Glitch, to deliver efficient and personalized user interactions. Enhanced the chatbot’s ability to handle a wide range of customer queries by incorporating natural language processing, improving accuracy and user satisfaction.</p>
+	    <a href="https://github.com/gitsaranya" target="_blank">GitHub Link</a>
+	  </div>
+
+	  	  <div class="project-box">
+	    <h3>Book Tract</h3>
+	    <p>Designed and implemented a full-stack Book Management System with an Angular frontend for dynamic data entry and real-time updates, paired with an ASP.NET Core API backend to handle CRUD operations. Leveraged RESTful API design, efficient data binding, and seamless communication between client and server to enable users to add, edit, and display book entries in a responsive interface. Incorporated user authentication and role-based access control, ensuring secure access for both admin and general users, allowing for efficient management of book data.</p>
+	    <a href="https://github.com/gitsaranya" target="_blank">GitHub Link</a>
+	  </div>
+	</div>
+
+
+  <!-- Contact -->
+  <div class="contact" id="contact">
+    <h2>CONTACT</h2>
+    <p>If you'd like to get in touch, feel free to reach out to me.</p>
+    <ul style="list-style-type: none; padding: 0;">
+      <li><a href="https://www.linkedin.com/in/saranya-v1" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/gitsaranya" target="_blank">GitHub</a></li>
+      <li><a href="saruvnair2@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</body>
+</html>
